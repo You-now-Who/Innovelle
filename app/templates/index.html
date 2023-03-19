@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.88.1">
+<title>Innovelle</title>
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/assets/css/custom.css">
+
+</head>
+<body>
+
+    {% include 'navigation.html' %}
+ 
+    <main>
+
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://i.imgur.com/oW9CxAH.png" alt="" width="60">
+            <h1 class="display-5 fw-bold">Innovelle</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    A safe space for woman in STEM to provide resources, support and mentorship.
+                </p>
+            
+                {% if current_user.is_authenticated %}
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        Your credentials: {{ current_user.email }}
+                    </div>
+                {% endif %}
+
+                <br />
+
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    {% if current_user.is_authenticated %} 
+
+                        <a href="/logout"   type="button" class="btn btn-primary btn-lg px-4 gap-3">Logout</a>
+
+                    {% else %}
+
+                        <a href="/login"    type="button" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
+                        <a href="/register" type="button" class="btn btn-outline-secondary btn-lg px-4">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <div class="row">
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 ">
+                  <div class="card-body">
+                    <h4 class="card-title">Safe Community</h4>
+                    <p class="card-text">Innovelle provides a safe and supportive community for women in STEM to connect with one another and share resources and advice.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 ">
+                  <div class="card-body">
+                    <h4 class="card-title">Mentorship</h4>
+                    <p class="card-text">Our platform offers mentorship programs for women in STEM to connect with experienced professionals who can provide guidance and support.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 ">
+                  <div class="card-body">
+                    <h4 class="card-title">Resource Library</h4>
+                    <p class="card-text">Innovelle's resource library is packed with articles, podcasts, and other resources to help women in STEM develop new skills and stay informed on industry trends.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+      
+</body>
+</html>
